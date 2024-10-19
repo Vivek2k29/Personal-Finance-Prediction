@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Finance Prediction</title>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Finance Prediction Form</h1>
+    <form action="/predict" method="post">
+        <div class="form-group">
+            <label for="prediction_option">Select Prediction Type</label>
+            <select id="prediction_option" name="prediction_option" required>
+                <option value="income">Income Prediction</option>
+                <option value="expenses">Expenses Prediction</option>
+                <option value="savings">Savings Prediction</option>
+                <option value="loan">Loan Prediction</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="income">Income</label>
+            <input type="number" id="income" name="income" required>
+        </div>
+        <div class="form-group">
+            <label for="expenses">Expenses</label>
+            <input type="number" id="expenses" name="expenses" required>
+        </div>
+        <div class="form-group">
+            <label for="savings">Savings</label>
+            <input type="number" id="savings" name="savings" required>
+        </div>
+        <div class="form-group">
+            <label for="loan_amount">Loan Amount</label>
+            <input type="number" id="loan_amount" name="loan_amount" required>
+        </div>
+        <div class="form-group">
+            <label for="credit_score">Credit Score</label>
+            <input type="number" id="credit_score" name="credit_score" required>
+        </div>
+        <div class="form-group">
+            <label for="investments">Investments</label>
+            <input type="number" id="investments" name="investments" required>
+        </div>
+        <div class="form-group">
+            <label for="employment_status">Employment Status</label>
+            <input type="text" id="employment_status" name="employment_status" required>
+        </div>
+        <div class="form-group">
+            <label for="dependents">Dependents</label>
+            <input type="number" id="dependents" name="dependents" required>
+        </div>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if result %}
+    <div id="result">{{ result }}</div>
+    {% endif %}
+</div>
+
+</body>
+</html>
+
+
+
+
